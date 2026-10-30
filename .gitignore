@@ -1,0 +1,15 @@
+# Compiled Java class files
+*.class
+
+# Eclipse / IDE build output folders
+bin/
+/JavaProject_Page_1/bin/
+build/
+target/
+
+# IDE specific files (optional, but keeps things clean)
+.settings/
+
+# OS junk files
+.DS_Store
+Thumbs.db
