@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="rootPane" prefHeight="700.0" prefWidth="760.0" spacing="12.0" style="-fx-background-color: #f4f6f9;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AttendanceController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+   </padding>
+   <children>
+      <!-- Top Mode Switcher -->
+      <HBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-padding: 8; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;">
+         <children>
+            <Button fx:id="btnClassView" mnemonicParsing="false" onAction="#switchToClassView" prefHeight="32.0" prefWidth="180.0" styleClass="search-button" text="CLASS VIEW" />
+            <Button fx:id="btnIndividualView" mnemonicParsing="false" onAction="#switchToIndividualView" prefHeight="32.0" prefWidth="180.0" styleClass="reset-button" text="INDIVIDUAL STUDENT VIEW" />
+         </children>
+      </HBox>
+
+      <!-- Sub-Mode Switcher -->
+      <HBox fx:id="subModeBar" alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #e2e8f0; -fx-padding: 6 12; -fx-background-radius: 4;">
+         <children>
+            <Label text="Sub-Mode:" textFill="#1e3a8a">
+               <font><Font name="System Bold" size="11.0" /></font>
+            </Label>
+            <Button fx:id="btnMatrixSummary" mnemonicParsing="false" onAction="#switchToMatrixSummary" prefHeight="26.0" prefWidth="140.0" styleClass="search-button" text="• Matrix Summary" />
+            <Button fx:id="btnDailyLog" mnemonicParsing="false" onAction="#switchToDailyLog" prefHeight="26.0" prefWidth="140.0" styleClass="reset-button" text="• Daily Log" />
+         </children>
+      </HBox>
+
+      <!-- Filter Panel 1: Matrix / Individual View Filters -->
+      <VBox fx:id="matrixFilterBox" spacing="8.0" style="-fx-background-color: white; -fx-padding: 12; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;">
+         <children>
+            <HBox spacing="8.0">
+               <children>
+                  <ComboBox fx:id="comboDepartment" prefHeight="30.0" prefWidth="130.0" promptText="Department" />
+                  <ComboBox fx:id="comboYear" prefHeight="30.0" prefWidth="105.0" promptText="Year" />
+                  <ComboBox fx:id="comboSemester" prefHeight="30.0" prefWidth="105.0" promptText="Semester" />
+                  <DatePicker fx:id="startDatePicker" prefHeight="30.0" prefWidth="115.0" promptText="Start Date" />
+                  <DatePicker fx:id="endDatePicker" prefHeight="30.0" prefWidth="115.0" promptText="End Date" />
+                  <TextField fx:id="searchField" prefHeight="30.0" prefWidth="130.0" promptText="Search student..." HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <CheckBox fx:id="chkLowAttendance" mnemonicParsing="false" onAction="#applyFilters" text="Only show attendance &lt;75%" textFill="#b91c1c">
+                     <font><Font name="System Bold" size="11.0" /></font>
+                  </CheckBox>
+                  <Button mnemonicParsing="false" onAction="#applyFilters" prefHeight="28.0" prefWidth="85.0" styleClass="search-button" text="Filter" />
+                  <Button mnemonicParsing="false" onAction="#handleReset" prefHeight="28.0" prefWidth="85.0" styleClass="reset-button" text="Reset" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Filter Panel 2: Daily Log Filters (Isolated) -->
+      <VBox fx:id="dailyFilterBox" visible="false" managed="false" spacing="8.0" style="-fx-background-color: white; -fx-padding: 12; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;">
+         <children>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <DatePicker fx:id="dailyDatePicker" prefHeight="30.0" prefWidth="140.0" promptText="Date" />
+                  <ComboBox fx:id="dailyPeriodCombo" prefHeight="30.0" prefWidth="120.0" promptText="Period" />
+                  <TextField fx:id="dailySearchField" prefHeight="30.0" prefWidth="180.0" promptText="Search student/subject..." HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Label text="Remarks / Status:" textFill="#1e3a8a"><font><Font name="System Bold" size="11.0" /></font></Label>
+                  <CheckBox fx:id="chkPresent" mnemonicParsing="false" onAction="#applyFilters" text="Present" />
+                  <CheckBox fx:id="chkAbsent" mnemonicParsing="false" onAction="#applyFilters" text="Absent" />
+                  <CheckBox fx:id="chkExcuse" mnemonicParsing="false" onAction="#applyFilters" text="Excuse" />
+                  <Button mnemonicParsing="false" onAction="#applyFilters" prefHeight="28.0" prefWidth="85.0" styleClass="search-button" text="Filter" />
+                  <Button mnemonicParsing="false" onAction="#handleReset" prefHeight="28.0" prefWidth="85.0" styleClass="reset-button" text="Reset" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Helpful Hint Banner (Visible only in Class View) -->
+      <HBox fx:id="hintBox" alignment="CENTER_LEFT" style="-fx-background-color: #eff6ff; -fx-padding: 6 10; -fx-background-radius: 4; -fx-border-color: #bfdbfe; -fx-border-radius: 4;">
+         <children>
+            <Label text="💡 Hint: Double-click any student row in Matrix Summary or Daily Log to view detailed records in Individual Student View." textFill="#1e40af">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <!-- Dynamic Student Title Header -->
+      <Label fx:id="studentHeaderLabel" text="" textFill="#1e3a8a" visible="false" managed="false">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+
+      <!-- Matrix Summary Table -->
+      <TableView fx:id="matrixTable" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colNoMatrix" prefWidth="45.0" text="No" />
+          <TableColumn fx:id="colRollMatrix" prefWidth="105.0" text="Roll No" />
+          <TableColumn fx:id="colNameMatrix" prefWidth="160.0" text="Student Name" />
+          <TableColumn fx:id="colDeptMatrix" prefWidth="80.0" text="Dept" />
+          <TableColumn fx:id="colYearMatrix" prefWidth="100.0" text="Year" />
+          <TableColumn fx:id="colSubjMatrix" prefWidth="130.0" text="Subject" />
+          <TableColumn fx:id="colOverallMatrix" prefWidth="100.0" text="Overall %" />
+        </columns>
+      </TableView>
+
+      <!-- Daily Log Table -->
+      <TableView fx:id="dailyLogTable" visible="false" managed="false" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colNoLog" prefWidth="45.0" text="No" />
+          <TableColumn fx:id="colRollLog" prefWidth="95.0" text="Roll No" />
+          <TableColumn fx:id="colNameLog" prefWidth="135.0" text="Student Name" />
+          <TableColumn fx:id="colDateLog" prefWidth="95.0" text="Date" />
+          <TableColumn fx:id="colPeriodLog" prefWidth="65.0" text="Period" />
+          <TableColumn fx:id="colSubjLog" prefWidth="110.0" text="Subject" />
+          <TableColumn fx:id="colStatusLog" prefWidth="85.0" text="Status" />
+          <TableColumn fx:id="colMarkedByLog" prefWidth="85.0" text="Marked By" />
+          <TableColumn fx:id="colRemarksLog" prefWidth="90.0" text="Remarks" />
+        </columns>
+      </TableView>
+
+      <!-- Individual Student Audit Table -->
+      <TableView fx:id="individualTable" visible="false" managed="false" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colNoIndiv" prefWidth="45.0" text="No" />
+          <TableColumn fx:id="colSubjIndiv" prefWidth="180.0" text="Subject / Course" />
+          <TableColumn fx:id="colAttendedIndiv" prefWidth="130.0" text="Attended / Total" />
+          <TableColumn fx:id="colPercentageIndiv" prefWidth="130.0" text="Percentage" />
+          <TableColumn fx:id="colRemarksIndiv" prefWidth="235.0" text="Standing / Remarks" />
+        </columns>
+      </TableView>
+
+      <!-- Bottom Action Bar -->
+      <HBox alignment="CENTER_RIGHT" spacing="12.0">
+         <children>
+            <Button fx:id="btnBackToList" mnemonicParsing="false" onAction="#handleBackToList" prefHeight="32.0" prefWidth="190.0" styleClass="reset-button" text="← Back to Student List" visible="false" managed="false" />
+            <Button fx:id="btnExport" mnemonicParsing="false" onAction="#handleExport" prefHeight="32.0" prefWidth="170.0" styleClass="search-button" text="Export Student Audit" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
