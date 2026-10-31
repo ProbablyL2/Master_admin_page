@@ -1,0 +1,7 @@
+{
+    "java.jdt.ls.java.home": "C:/Program Files/Eclipse Adoptium/jdk-25.0.5.8-hotspot",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.run.debug.vmArgs": "--module-path \"C:/Users/IGuessL2/Downloads/openjfx-27.0.1_windows-x64_bin-sdk/javafx-sdk-27.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+}

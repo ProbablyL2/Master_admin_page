@@ -1,6 +1,5 @@
 package application;
 
-import java.list;
 import java.io.IOException;
 import java.util.Optional;
 import javafx.collections.FXCollections;
