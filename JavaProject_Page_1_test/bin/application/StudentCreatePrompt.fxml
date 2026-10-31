@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="rootPane" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#handleBackgroundClick" prefHeight="700.0" prefWidth="760.0" style="-fx-background-color: #f8fafc;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentCreatePromptController">
+   <children>
+      <VBox alignment="CENTER" maxWidth="440.0" prefWidth="440.0" spacing="16.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-padding: 35 35;">
+         <children>
+            <!-- Logo Section with Extra Bottom Spacing -->
+            <VBox alignment="CENTER" spacing="8.0">
+               <children>
+                  <ImageView fx:id="logoImageView" fitHeight="124.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/ytu%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </VBox>
+            <Region prefHeight="26.0" prefWidth="368.0" />
+
+            <!-- Username Field -->
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" spacing="12.0" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-background-color: #f8fafc; -fx-padding: 0 12;">
+               <children>
+                  <Label text="👤" textFill="#64748b">
+                     <font><Font size="15.0" /></font>
+                  </Label>
+                  <TextField fx:id="usernameField" prefHeight="36.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: transparent;" HBox.hgrow="ALWAYS">
+                     <font><Font size="13.5" /></font>
+                  </TextField>
+               </children>
+            </HBox>
+
+            <!-- Email Field -->
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" spacing="12.0" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-background-color: #f8fafc; -fx-padding: 0 12;">
+               <children>
+                  <Label text="✉" textFill="#64748b">
+                     <font><Font size="15.0" /></font>
+                  </Label>
+                  <TextField fx:id="emailField" prefHeight="36.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: transparent;" HBox.hgrow="ALWAYS">
+                     <font><Font size="13.5" /></font>
+                  </TextField>
+               </children>
+            </HBox>
+
+            <!-- Password Field with Toggle -->
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" spacing="12.0" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-background-color: #f8fafc; -fx-padding: 0 12;">
+               <children>
+                  <Label text="🔒" textFill="#64748b">
+                     <font><Font size="15.0" /></font>
+                  </Label>
+                  <StackPane alignment="CENTER_LEFT" prefHeight="36.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <PasswordField fx:id="passwordField" prefHeight="36.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;">
+                           <font><Font size="13.5" /></font>
+                        </PasswordField>
+                        <TextField fx:id="passwordTextField" managed="false" prefHeight="36.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;" visible="false">
+                           <font><Font size="13.5" /></font>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <Label fx:id="eyeIcon1" onMouseClicked="#togglePasswordVisibility" style="-fx-cursor: hand;" text="👁" textFill="#64748b">
+                     <font><Font size="14.0" /></font>
+                  </Label>
+               </children>
+            </HBox>
+
+            <!-- Confirm Password Field with Toggle -->
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" spacing="12.0" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-background-color: #f8fafc; -fx-padding: 0 12;">
+               <children>
+                  <Label text="🔒" textFill="#64748b">
+                     <font><Font size="15.0" /></font>
+                  </Label>
+                  <StackPane alignment="CENTER_LEFT" prefHeight="36.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <PasswordField fx:id="confirmPasswordField" prefHeight="36.0" promptText="Confirm Password" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;">
+                           <font><Font size="13.5" /></font>
+                        </PasswordField>
+                        <TextField fx:id="confirmPasswordTextField" managed="false" prefHeight="36.0" promptText="Confirm Password" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;" visible="false">
+                           <font><Font size="13.5" /></font>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <Label fx:id="eyeIcon2" onMouseClicked="#toggleConfirmPasswordVisibility" style="-fx-cursor: hand;" text="👁" textFill="#64748b">
+                     <font><Font size="14.0" /></font>
+                  </Label>
+               </children>
+            </HBox>
+            <Region prefHeight="38.0" prefWidth="368.0" />
+
+            <!-- Action Buttons Section with Extra Top Spacing -->
+            <VBox spacing="10.0">
+               <children>
+                  <!-- Create Button (shares search-button style for matching hover & click feedback) -->
+                  <Button fx:id="createBtn" mnemonicParsing="false" onAction="#handleCreate" prefHeight="42.0" prefWidth="370.0" styleClass="search-button" text="👤+   Create">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  
+                  <!-- Back To Manage Student Button -->
+                  <Button fx:id="backBtn" mnemonicParsing="false" onAction="#handleBackToManage" prefHeight="38.0" prefWidth="370.0" styleClass="reset-button" text="← Back To Manage Student">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

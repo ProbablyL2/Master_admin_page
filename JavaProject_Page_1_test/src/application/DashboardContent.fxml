@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" prefHeight="700.0" prefWidth="760.0" style="-fx-background: #f4f6f9; -fx-background-color: #f4f6f9;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
+   <content>
+      <VBox spacing="15.0" style="-fx-background-color: #f4f6f9;">
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="20.0" />
+         </padding>
+         <children>
+            <!-- Header Title -->
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <VBox spacing="3.0">
+                     <children>
+                        <Label text="Dashboard" textFill="#1e3a8a">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label text="Welcome back, Admin! Here's an overview of the system." textFill="#64748b">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lblCurrentDate" text="Saturday, 17 Oct 2026" textFill="#64748b">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+
+            <!-- Top Metric Cards HBox -->
+            <HBox spacing="12.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: white; -fx-padding: 14 10; -fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" minWidth="40.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #dbeafe; -fx-background-radius: 8;" text="👥" textFill="#1d4ed8"><font><Font size="16.0" /></font></Label>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                           <children>
+                              <Label text="Total Students" textFill="#64748b"><font><Font size="10.5" /></font></Label>
+                              <Label fx:id="lblTotalStudents" text="1,250" textFill="#1e3a8a"><font><Font name="System Bold" size="17.0" /></font></Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: white; -fx-padding: 14 10; -fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" minWidth="40.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #eff6ff; -fx-background-radius: 8;" text="🎓" textFill="#2563eb"><font><Font size="16.0" /></font></Label>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                           <children>
+                              <Label text="Active Students" textFill="#64748b"><font><Font size="10.5" /></font></Label>
+                              <Label fx:id="lblActiveStudents" text="1,200" textFill="#1e3a8a"><font><Font name="System Bold" size="17.0" /></font></Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: white; -fx-padding: 14 10; -fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" minWidth="40.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #e0f2fe; -fx-background-radius: 8;" text="👨‍🏫" textFill="#0284c7"><font><Font size="16.0" /></font></Label>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                           <children>
+                              <Label text="Total Teachers" textFill="#64748b"><font><Font size="10.5" /></font></Label>
+                              <Label fx:id="lblTotalTeachers" text="84" textFill="#1e3a8a"><font><Font name="System Bold" size="17.0" /></font></Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: white; -fx-padding: 14 10; -fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" minWidth="40.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #f0fdf4; -fx-background-radius: 8;" text="📚" textFill="#0f766e"><font><Font size="16.0" /></font></Label>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                           <children>
+                              <Label text="Total Courses" textFill="#64748b"><font><Font size="10.5" /></font></Label>
+                              <Label fx:id="lblTotalCourses" text="96" textFill="#1e3a8a"><font><Font name="System Bold" size="17.0" /></font></Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: white; -fx-padding: 14 10; -fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" minWidth="40.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #fef3c7; -fx-background-radius: 8;" text="📅" textFill="#b45309"><font><Font size="16.0" /></font></Label>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                           <children>
+                              <Label text="Today's Attendance" textFill="#64748b"><font><Font size="10.5" /></font></Label>
+                              <Label fx:id="lblTodaysAttendance" text="92.3%" textFill="#1e3a8a"><font><Font name="System Bold" size="17.0" /></font></Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+
+            <!-- Vertical Stack for Analytics Cards & Tables -->
+            <VBox spacing="15.0">
+               <children>
+                  <!-- 1. Student Enrollment Trend Card -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 16; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-radius: 8;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="📊 Student Enrollment Trend" textFill="#1e3a8a"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <Label text="Last 6 Years ▾" textFill="#64748b" style="-fx-border-color: #cbd5e1; -fx-border-radius: 4; -fx-padding: 3 8;"><font><Font size="11.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <BarChart fx:id="enrollmentBarChart" prefHeight="240.0">
+                          <xAxis>
+                            <CategoryAxis fx:id="xAxisEnrollment" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="yAxisEnrollment" autoRanging="false" lowerBound="0.0" side="LEFT" tickUnit="300.0" upperBound="1200.0" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+
+                  <!-- 2. Mark Registration Card (Placed between Enrollment and Pie Chart) -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 16; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-radius: 8;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="📝 Mark Registration" textFill="#1e3a8a"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <Label text="View All" textFill="#2563eb"><font><Font size="11.0" /></font></Label>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="markTable" prefHeight="200.0">
+                          <columns>
+                            <TableColumn fx:id="colStudentId" prefWidth="110.0" text="Student ID" />
+                            <TableColumn fx:id="colStudentName" prefWidth="150.0" text="Student Name" />
+                            <TableColumn fx:id="colSubject" prefWidth="180.0" text="Subject" />
+                            <TableColumn fx:id="colMarks" prefWidth="100.0" text="Marks" />
+                            <TableColumn fx:id="colStatus" prefWidth="120.0" text="Status" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+
+                  <!-- 3. Students by Department Card (Side-by-side Pie Chart & Legend) -->
+                  <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-radius: 8;">
+                     <children>
+                        <Label text="Students by Department" textFill="#1e3a8a"><font><Font name="System Bold" size="14.0" /></font></Label>
+                        
+                        <HBox alignment="CENTER_LEFT" spacing="30.0">
+                           <children>
+                              <PieChart fx:id="departmentPieChart" minHeight="420.0" minWidth="420.0" prefHeight="420.0" prefWidth="420.0" HBox.hgrow="NEVER" />
+                              
+                              <VBox spacing="12.0" HBox.hgrow="ALWAYS" style="-fx-padding: 10 0 0 0;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #0a192f; -fx-background-radius: 3;" />
+                                          <Label text="Architecture" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="100 (8.0%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #0f2942; -fx-background-radius: 3;" />
+                                          <Label text="Chemical Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="90 (7.2%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #13385c; -fx-background-radius: 3;" />
+                                          <Label text="Civil Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="125 (10.0%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #1d4ed8; -fx-background-radius: 3;" />
+                                          <Label text="Computer Engineering and Information Technology" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="180 (14.4%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #2563eb; -fx-background-radius: 3;" />
+                                          <Label text="Electrical Power Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="130 (10.4%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #3b82f6; -fx-background-radius: 3;" />
+                                          <Label text="Electronic Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="110 (8.8%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #60a5fa; -fx-background-radius: 3;" />
+                                          <Label text="Food Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="45 (3.6%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #1e40af; -fx-background-radius: 3;" />
+                                          <Label text="Mechanical Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="100 (8.0%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #0284c7; -fx-background-radius: 3;" />
+                                          <Label text="Mechatronic Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="75 (6.0%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #0f766e; -fx-background-radius: 3;" />
+                                          <Label text="Metallurgy Engineering and Material Science" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="50 (4.0%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #0d9488; -fx-background-radius: 3;" />
+                                          <Label text="Mining Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="40 (3.2%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #10b981; -fx-background-radius: 3;" />
+                                          <Label text="Petroleum Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="85 (6.8%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #64748b; -fx-background-radius: 3;" />
+                                          <Label text="Telecommunication Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="80 (6.4%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Region prefHeight="12.0" prefWidth="12.0" style="-fx-background-color: #94a3b8; -fx-background-radius: 3;" />
+                                          <Label text="Textile Engineering" textFill="#334155"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Label text="40 (3.2%)" textFill="#64748b"><font><Font size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <!-- 4. Attendance Overview Area Chart Card -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 16; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-radius: 8;">
+                     <children>
+                        <Label text="📈 Attendance Overview" textFill="#1e3a8a"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <AreaChart fx:id="attendanceAreaChart" prefHeight="220.0">
+                          <xAxis>
+                            <CategoryAxis fx:id="xAxisAttendance" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="yAxisAttendance" autoRanging="false" lowerBound="80.0" side="LEFT" upperBound="100.0" />
+                          </yAxis>
+                        </AreaChart>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
