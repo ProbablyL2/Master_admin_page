@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentModifyController">
+   <content>
+      <VBox fx:id="contentContainer" spacing="16.0" style="-fx-background-color: #f1f5f9; -fx-padding: 24;">
+         <children>
+            <!-- Top Action Bar -->
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleReturn" prefHeight="35.0" prefWidth="100.0" styleClass="reset-button" text="← Return" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#handleResetData" prefHeight="35.0" prefWidth="110.0" styleClass="reset-button" text="Reset Data" />
+                  <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="35.0" prefWidth="130.0" styleClass="search-button" text="Save Changes" />
+               </children>
+            </HBox>
+
+            <!-- Main Form Sheet Container -->
+            <VBox spacing="14.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;">
+               <children>
+                  <!-- Top Header Block with Clickable Passport Upload -->
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <VBox spacing="2.5">
+                           <children>
+                              <Label text="STUDENT INFORMATION FORM (MODIFY)" textFill="#1e3a8a">
+                                 <font><Font name="System Bold" size="17.0" /></font>
+                              </Label>
+                              <Label text="LEARN  •  GROW  •  ACHIEVE" textFill="#d97706">
+                                 <font><Font name="System Bold" size="10.0" /></font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Pane HBox.hgrow="ALWAYS" />
+                        <VBox alignment="CENTER" spacing="4.0">
+                           <children>
+                              <VBox fx:id="photoContainer" alignment="CENTER" onMouseClicked="#handleUploadPhoto"
+                                    prefHeight="115.0" prefWidth="90.0" maxHeight="115.0" maxWidth="90.0" minHeight="115.0" minWidth="90.0"
+                                    style="-fx-border-color: #1e3a8a; -fx-border-width: 1.5; -fx-background-color: #f8fafc; -fx-border-radius: 4; -fx-cursor: hand;">
+                                 <children>
+                                    <ImageView fx:id="passportImageView" fitHeight="110.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="false">
+                                       <image>
+                                          <Image url="@../freddy.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                              <Label onMouseClicked="#handleUploadPhoto" text="📷 Change Photo" textFill="#2563eb" style="-fx-cursor: hand; -fx-font-size: 10px; -fx-font-weight: bold;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <!-- 1. Student Details -->
+                  <Label style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-padding: 5 18; -fx-background-radius: 15;" text="1. Student Details">
+                     <font><Font name="System Bold" size="11.5" /></font>
+                  </Label>
+                  <GridPane hgap="12.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="100.0" prefWidth="120.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="140.0" prefWidth="195.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="100.0" prefWidth="120.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="140.0" prefWidth="195.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                      <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                      <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                      <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                      <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Roll No" /><Label text=":" GridPane.columnIndex="1" /><TextField fx:id="txtRollNo" GridPane.columnIndex="2" />
+                        <Label text="Date of Birth" GridPane.columnIndex="3" /><Label text=":" GridPane.columnIndex="4" /><TextField fx:id="txtDob" promptText="YYYY-MM-DD" GridPane.columnIndex="5" />
+                        
+                        <Label text="Full Name" GridPane.rowIndex="1" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" /><TextField fx:id="txtName" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="Gender" GridPane.columnIndex="3" GridPane.rowIndex="1" /><Label text=":" GridPane.columnIndex="4" GridPane.rowIndex="1" /><TextField fx:id="txtGender" promptText="Male/Female" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        
+                        <Label text="Programme / Major" GridPane.rowIndex="2" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" /><TextField fx:id="txtMajor" promptText="e.g. CEIT" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="Nationality" GridPane.columnIndex="3" GridPane.rowIndex="2" /><Label text=":" GridPane.columnIndex="4" GridPane.rowIndex="2" /><TextField fx:id="txtNationality" promptText="Myanmar" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        
+                        <Label text="Year / Level" GridPane.rowIndex="3" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" /><TextField fx:id="txtYear" promptText="e.g. Second Year" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Semester" GridPane.columnIndex="3" GridPane.rowIndex="3" /><Label text=":" GridPane.columnIndex="4" GridPane.rowIndex="3" /><TextField fx:id="txtSemester" promptText="First Semester" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+
+                        <Label text="NRC / ID No." GridPane.rowIndex="4" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="4" /><TextField fx:id="txtNrc" promptText="NRC number" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+
+                  <!-- 2. Contact Information -->
+                  <Label style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-padding: 5 18; -fx-background-radius: 15;" text="2. Contact Information">
+                     <font><Font name="System Bold" size="11.5" /></font>
+                  </Label>
+                  <GridPane hgap="12.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="100.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="450.0" prefWidth="535.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Phone Number" /><Label text=":" GridPane.columnIndex="1" /><TextField fx:id="txtPhone" promptText="09-231231231" GridPane.columnIndex="2" />
+                        <Label text="Email Address" GridPane.rowIndex="1" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" /><TextField fx:id="txtEmail" promptText="student@ytu.edu.mm" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="Current Address" GridPane.rowIndex="2" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" /><TextField fx:id="txtCurrentAddress" promptText="Current Address" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="Permanent Address" GridPane.rowIndex="3" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" /><TextField fx:id="txtPermanentAddress" promptText="Permanent Address" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+
+                  <!-- 3 & 4. Parents Information -->
+                  <HBox spacing="15.0">
+                     <children>
+                        <!-- Father's Information -->
+                        <VBox spacing="8.0" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-padding: 4 12; -fx-background-radius: 12;" text="3. Father's Information">
+                                 <font><Font name="System Bold" size="10.5" /></font>
+                              </Label>
+                              <GridPane hgap="6.0" vgap="8.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="75.0" prefWidth="85.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" prefWidth="150.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Full Name" /><Label text=":" GridPane.columnIndex="1" /><TextField fx:id="txtFatherName" promptText="Father Name" GridPane.columnIndex="2" />
+                                    <Label text="Occupation" GridPane.rowIndex="1" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" /><TextField fx:id="txtFatherOcc" promptText="e.g. Engineer" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label text="Phone" GridPane.rowIndex="2" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" /><TextField fx:id="txtFatherPhone" promptText="09-231231231" GridPane.columnIndex="2" />
+                                    <Label text="Email" GridPane.rowIndex="3" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" /><TextField fx:id="txtFatherEmail" promptText="father@gmail.com" GridPane.columnIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+
+                        <!-- Mother's Information -->
+                        <VBox spacing="8.0" style="-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-padding: 4 12; -fx-background-radius: 12;" text="4. Mother's Information">
+                                 <font><Font name="System Bold" size="10.5" /></font>
+                              </Label>
+                              <GridPane hgap="6.0" vgap="8.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="75.0" prefWidth="85.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" prefWidth="150.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                    <RowConstraints minHeight="24.0" prefHeight="24.0" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Full Name" /><Label text=":" GridPane.columnIndex="1" /><TextField fx:id="txtMotherName" promptText="Mother Name" GridPane.columnIndex="2" />
+                                    <Label text="Occupation" GridPane.rowIndex="1" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" /><TextField fx:id="txtMotherOcc" promptText="e.g. Teacher" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label text="Phone" GridPane.rowIndex="2" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" /><TextField fx:id="txtMotherPhone" promptText="09-231231231" GridPane.columnIndex="2" />
+                                    <Label text="Email" GridPane.rowIndex="3" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" /><TextField fx:id="txtMotherEmail" promptText="mother@gmail.com" GridPane.columnIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <!-- 5. Educational Background & Additional Info -->
+                  <Label style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-padding: 5 18; -fx-background-radius: 15;" text="5. Educational Background &amp; Additional Info">
+                     <font><Font name="System Bold" size="11.5" /></font>
+                  </Label>
+                  <GridPane hgap="12.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="120.0" prefWidth="135.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="440.0" prefWidth="520.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                        <RowConstraints minHeight="26.0" prefHeight="26.0" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Previous School" /><Label text=":" GridPane.columnIndex="1" /><TextField fx:id="txtPrevSchool" GridPane.columnIndex="2" />
+                        <Label text="Year Completed" GridPane.rowIndex="1" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" /><TextField fx:id="txtYearCompleted" promptText="e.g. 2020" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="Additional Info" GridPane.rowIndex="2" /><Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" /><TextField fx:id="txtAdditionalInfo" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

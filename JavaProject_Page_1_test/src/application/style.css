@@ -1,0 +1,224 @@
+/* --- Table View Clean Headers & Borders --- */
+.table-view {
+    -fx-table-cell-border-color: #cbd5e1;
+    -fx-table-header-border-color: #cbd5e1;
+    -fx-background-color: white;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #e2e8f0;
+    -fx-border-color: transparent transparent #cbd5e1 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #e2e8f0;
+    -fx-border-color: transparent #cbd5e1 #cbd5e1 transparent;
+    -fx-border-width: 0 1px 1px 0;
+}
+
+/* Force visible high-contrast header text */
+.table-view .column-header .label {
+    -fx-text-fill: #0f172a !important;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Explicit cell styling and borders */
+.table-view .table-cell {
+    -fx-border-color: transparent #cbd5e1 #cbd5e1 transparent;
+    -fx-border-width: 0 1px 1px 0;
+    -fx-padding: 8px 10px;
+    -fx-text-fill: #1e293b;
+}
+
+/* --- Row Selection Highlight & Text Visibility Fix --- */
+.table-row-cell:filled:selected {
+    -fx-background-color: #2563eb !important;
+}
+
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: white !important;
+}
+
+.table-row-cell:filled:selected .table-cell .text {
+    -fx-fill: white !important;
+}
+
+/* --- Striking Attendance Row Highlight Classes --- */
+.row-present {
+    -fx-background-color: #d1fae5; /* Soft vibrant mint green */
+    -fx-text-fill: #065f46;
+}
+.row-present:selected {
+    -fx-background-color: #2563eb !important;
+}
+
+.row-absent {
+    -fx-background-color: #fee2e2; /* Soft striking coral red */
+    -fx-text-fill: #991b1b;
+}
+.row-absent:selected {
+    -fx-background-color: #2563eb !important;
+}
+
+.row-excused {
+    -fx-background-color: #fef3c7; /* Warm golden amber */
+    -fx-text-fill: #92400e;
+}
+.row-excused:selected {
+    -fx-background-color: #2563eb !important;
+}
+/* ----------------------------------------------- */
+
+.buttoncontainer {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+}
+
+.rounded-button {
+    -fx-background-color: #456c99;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-border-color: #7DD3FC;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 25px;
+    -fx-cursor: hand;
+}
+
+.rounded-button:hover {
+    -fx-background-color: #7DD3FC;
+    -fx-text-fill: white;
+}
+
+.rounded-button:pressed {
+    -fx-background-color: #38BDF8;
+    -fx-text-fill: white;
+}
+
+/* --- Search & Create Button Styling --- */
+.search-button {
+    -fx-background-color: #395d87;
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    -fx-background-color: #4a78ab; /* Smooth lighter shade on hover */
+}
+
+.search-button:pressed {
+    -fx-background-color: #2c4a6e; /* Deeper shade on click */
+}
+
+/* --- Reset Button Styling --- */
+.reset-button {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #334155;
+    -fx-background-radius: 6px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.reset-button:hover {
+    -fx-background-color: #cbd5e1;
+}
+
+.reset-button:pressed {
+    -fx-background-color: #94a3b8;
+}
+
+/* --- Sidebar Navigation Buttons --- */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a0aec0;
+    -fx-cursor: hand;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-padding: 0 0 0 25px;
+    -fx-font-size: 14px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: white;
+}
+
+.sidebar-button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: white;
+}
+
+.sidebar-button-active {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-padding: 0 0 0 25px;
+    -fx-font-size: 14px;
+}
+
+/* Attendance Area Chart Custom Blue Styling */
+.default-color0.chart-series-area-line {
+    -fx-stroke: #2563eb;
+    -fx-stroke-width: 2.5px;
+}
+
+.default-color0.chart-series-area-fill {
+    -fx-fill: linear-gradient(to bottom, rgba(37, 99, 235, 0.35), rgba(37, 99, 235, 0.02));
+}
+
+.default-color0.chart-area-symbol {
+    -fx-background-color: #2563eb, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 4px;
+}
+
+.default-color0.chart-bar { -fx-bar-fill: #1e40af; }
+.default-color1.chart-bar { -fx-bar-fill: #2563eb; }
+.default-color2.chart-bar { -fx-bar-fill: #3b82f6; }
+.default-color3.chart-bar { -fx-bar-fill: #60a5fa; }
+.default-color4.chart-bar { -fx-bar-fill: #93c5fd; }
+
+.default-color0.chart-legend-item-symbol { -fx-background-color: #1e40af; }
+.default-color1.chart-legend-item-symbol { -fx-background-color: #2563eb; }
+.default-color2.chart-legend-item-symbol { -fx-background-color: #3b82f6; }
+.default-color3.chart-legend-item-symbol { -fx-background-color: #60a5fa; }
+.default-color4.chart-legend-item-symbol { -fx-background-color: #93c5fd; }
+
+.chart-pie-label-line {
+    -fx-stroke: #94a3b8;
+    -fx-stroke-width: 1px;
+}
+
+.chart-pie-label {
+    -fx-fill: #1e3a8a;
+    -fx-font-weight: bold;
+    -fx-font-size: 10px;
+}
+
+/* --- Instruction Banner Box Styling --- */
+.instruction-banner-box {
+    -fx-background-color: #f0f7ff;
+    -fx-background-radius: 6px;
+    -fx-border-color: #dbeafe;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 14px;
+}
+/* --- Section Card Box Styling --- */
+.section-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+}

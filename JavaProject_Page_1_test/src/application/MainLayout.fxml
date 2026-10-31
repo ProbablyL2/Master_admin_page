@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f9;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   
+   <!-- Left Sidebar Navigation -->
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="240.0" style="-fx-background-color: #395d87;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="104.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/ytulogo1bgremoved.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="25.0" />
+               </VBox.margin>
+            </ImageView>
+            
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="240.0" text="STUDENT INFORMATION&#10;MANAGEMENT" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            
+            <!-- Dashboard Nav Button -->
+			<Button fx:id="btnDashboard" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showDashboardView" prefHeight="45.0" prefWidth="240.0" styleClass="sidebar-button" text="  🏠  Dashboard">
+   				<font><Font size="14.0" /></font>
+   				<padding><Insets left="25.0" /></padding>
+			</Button>
+            
+            <!-- Manage Students Nav Button -->
+            <Button fx:id="btnManageStudent" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showStudentView" prefHeight="45.0" prefWidth="240.0" styleClass="sidebar-button" text="  👥  Manage Students">
+               <font><Font size="14.0" /></font>
+               <padding><Insets left="25.0" /></padding>
+            </Button>
+            
+            <!-- Manage Teacher Nav Button -->
+            <Button fx:id="btnManageTeacher" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showTeacherView" prefHeight="45.0" prefWidth="240.0" styleClass="sidebar-button" text="  👤  Manage Teacher">
+               <font><Font name="System Bold" size="14.0" /></font>
+               <padding><Insets left="25.0" /></padding>
+            </Button>
+            
+            <!-- Attendance Nav Button -->
+            <Button fx:id="btnAttendance" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showAttendanceView" prefHeight="45.0" prefWidth="240.0" styleClass="sidebar-button" text="  📅  Attendance">
+               <font><Font size="14.0" /></font>
+               <padding><Insets left="25.0" /></padding>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+
+</BorderPane>
