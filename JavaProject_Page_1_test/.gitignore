@@ -1,0 +1,8 @@
+# Ignore compiled Java class files & build output
+bin/
+*.class
+
+# Ignore local Eclipse IDE configs
+.classpath
+.project
+.settings/
